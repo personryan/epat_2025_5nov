@@ -32,6 +32,8 @@ jobs:
   snyk-scan:
     runs-on: ubuntu-latest
     steps:
+    - name: See Java Version
+      run: java -version
     - uses: actions/checkout@main
     - name: Run Snyk to check for vulnerabilities
       uses: snyk/actions/maven@main
