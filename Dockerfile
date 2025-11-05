@@ -1,5 +1,5 @@
 # first stage
-FROM openjdk:23-jdk-oracle AS builder
+FROM 26-ea-11-jdk-oraclelinux9 AS builder
 
 WORKDIR /app
 
@@ -11,8 +11,7 @@ COPY pom.xml .
 RUN ./mvnw package -DskipTests=true
 
 # second stage
-FROM openjdk:23-jdk-oracle
-
+FROM 26-ea-11-jdk-oraclelinux9
 WORKDIR /runningapp
 
 COPY --from=builder /app/target/d13revision-0.0.1-SNAPSHOT.jar .
